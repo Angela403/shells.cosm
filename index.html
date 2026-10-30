@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Логотип SHELA COSMETICS</title>
+    <title>Логотип SHELA</title>
     
-    <!-- Шрифты -->
+    <!-- Подключаем новые, более элегантные шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Great+Vibes&family=Montserrat:wght@300&display=swap" rel="stylesheet">
     
     <!-- Библиотека для сохранения картинки -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -22,20 +22,20 @@
             justify-content: center;
             min-height: 100vh;
             margin: 0;
-            font-family: sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
 
-        /* Контейнер для скачивания (квадрат как на референсе) */
+        /* Квадрат для скачивания */
         #logo-to-save {
             width: 600px;
             height: 600px;
-            background-color: #F2D4D8; /* Пыльно-розовый */
+            background-color: #F2D4D8; /* Пыльно-розовый фон */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             transition: transform 0.2s;
             position: relative;
         }
@@ -44,57 +44,46 @@
             transform: scale(1.02);
         }
 
-        /* Логотип */
+        /* Основное слово (Антиква) */
         .logo-main {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Cormorant Garamond', serif;
             font-size: 6rem;
-            font-weight: 600;
-            letter-spacing: 0.15em;
+            font-weight: 500;
+            letter-spacing: 0.18em;
             color: #5E1B28; /* Винный */
             text-transform: uppercase;
-            line-height: 0.8;
-            margin-left: 0.15em; /* Компенсация letter-spacing для центровки */
+            line-height: 1;
+            margin-left: 0.18em; /* Выравнивание для letter-spacing */
         }
 
-        .logo-sub-wrapper {
-            display: flex;
-            align-items: center;
-            margin-top: -20px;
-            position: relative;
+        /* Рукописное слово (Каллиграфия) */
+        .logo-sub {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+            color: #5E1B28;
+            transform: rotate(-4deg); /* Легкий наклон */
+            line-height: 1;
+            margin-top: -15px; /* Приближаем к основному слову */
             z-index: 2;
         }
 
-        .logo-sub {
-            font-family: 'Alex Brush', cursive;
-            font-size: 4.5rem;
-            color: #5E1B28;
-            transform: rotate(-6deg); /* Наклон как на референсе */
-            line-height: 1;
-        }
-
-        .logo-star {
-            width: 35px;
-            height: 35px;
-            fill: #5E1B28;
-            margin-left: 15px;
-            margin-top: 10px;
-        }
-
+        /* Минималистичный год */
         .tagline {
-            font-family: 'Playfair Display', serif;
-            font-size: 1rem;
-            letter-spacing: 0.4em;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.6em;
             color: #5E1B28;
-            margin-top: 40px;
+            margin-top: 45px;
             text-transform: uppercase;
-            font-weight: 500;
+            font-weight: 300;
+            margin-left: 0.6em; /* Выравнивание */
         }
 
         /* Текст-подсказка */
         .hint {
             margin-top: 30px;
             color: #555;
-            font-size: 1.1rem;
+            font-size: 1rem;
             text-align: center;
         }
 
@@ -105,56 +94,46 @@
                 height: 90vw;
             }
             .logo-main { font-size: 4rem; }
-            .logo-sub { font-size: 3rem; }
-            .logo-star { width: 25px; height: 25px; }
-            .tagline { font-size: 0.8rem; margin-top: 30px; }
+            .logo-sub { font-size: 3.5rem; margin-top: -10px; }
+            .tagline { font-size: 0.7rem; margin-top: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Блок, который будет сохраняться -->
+    <!-- Блок логотипа -->
     <div id="logo-to-save" title="Нажмите, чтобы сохранить в галерею">
         <div class="logo-main">SHELA</div>
-        <div class="logo-sub-wrapper">
-            <div class="logo-sub">Cosmetics</div>
-            <!-- Векторная звезда -->
-            <svg class="logo-star" viewBox="0 0 24 24">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-        </div>
-        <div class="tagline">SINCE 2024</div>
+        <div class="logo-sub">Shella</div>
+        <div class="tagline">2026</div>
     </div>
 
-    <div class="hint">👆 Нажмите на логотип, чтобы скачать его в высоком качестве</div>
+    <div class="hint">👆 Нажмите на логотип, чтобы сохранить его в галерею</div>
 
     <script>
         document.getElementById('logo-to-save').addEventListener('click', function() {
             const logoElement = this;
             
-            // Меняем курсор, чтобы показать загрузку
+            // Показываем, что идет загрузка
             logoElement.style.cursor = 'wait';
 
-            // Делаем скриншот блока с увеличением в 4 раза (для очень высокого качества)
+            // Делаем снимок с 4х увеличением (максимальное качество)
             html2canvas(logoElement, {
                 scale: 4, 
-                backgroundColor: null, // Сохраняем фон
+                backgroundColor: null,
                 useCORS: true 
             }).then(canvas => {
-                // Конвертируем в картинку
                 const image = canvas.toDataURL("image/png", 1.0);
                 
-                // Создаем невидимую ссылку для скачивания
                 const link = document.createElement('a');
-                link.download = 'shela-cosmetics-logo.png';
+                link.download = 'shela-logo-2026.png';
                 link.href = image;
                 link.click();
                 
-                // Возвращаем курсор
                 logoElement.style.cursor = 'pointer';
             }).catch(err => {
-                console.error("Ошибка при сохранении:", err);
-                alert("Не удалось сохранить. Попробуйте сделать скриншот экрана.");
+                console.error("Ошибка:", err);
+                alert("Не удалось сохранить автоматически. Сделайте скриншот.");
                 logoElement.style.cursor = 'pointer';
             });
         });
