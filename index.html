@@ -3,288 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S:HELA COSMETICS | Премиальная косметика и аксессуа ры</title>
-   1 <!-- Подключаем красивые шрифты: Play.fair Display (антиква) и Alex6 Brush (каллиграфия) -->
+    <title>Логотип SHELA COSMETICS</title>
+    
+    <!-- Шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
     
+    <!-- Библиотека для сохранения картинки -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
     <style>
-        /* ЦВЕТОВАЯ ПАЛИТРА */
-        :root {
-            --bg-pink: #F2D4D8;      /* Основной пыльно-розовый фон */
-            --bg-pink-dark: #E5B6BD; /* Темнее для блоков */
-            --wine: #5E1B28;         /* Глубокий винный (текст, лого) */
-            --cream: #FDFBF7;        /* Кремовый (карточки) */
-            --choco: #4A2C1D;        /* Шоколадный (акценты) */
-        }
-
-        /* БАЗОВЫЕ НАСТРОЙКИ */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            background-color: var(--bg-pink);
-            color: var(--wine);
-            font-family: 'Montserrat', sans-serif; /* Основной шрифт для текста */
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* --- СЕКЦИЯ 1: ЛОГОТИП И ШАПКА --- */
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-            min-height: 60vh;
+            background-color: #f4f4f4;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            background: linear-gradient(180deg, var(--bg-pink-dark) 0%, var(--bg-pink) 100%);
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
         }
 
-        /* Логотип в стиле референса Goldy */
-        .logo-container {
-            margin-bottom: 20px;
+        /* Контейнер для скачивания (квадрат как на референсе) */
+        #logo-to-save {
+            width: 600px;
+            height: 600px;
+            background-color: #F2D4D8; /* Пыльно-розовый */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
             position: relative;
         }
 
+        #logo-to-save:hover {
+            transform: scale(1.02);
+        }
+
+        /* Логотип */
         .logo-main {
             font-family: 'Playfair Display', serif;
-            font-size: 5rem;
+            font-size: 6rem;
             font-weight: 600;
             letter-spacing: 0.15em;
+            color: #5E1B28; /* Винный */
             text-transform: uppercase;
             line-height: 0.8;
+            margin-left: 0.15em; /* Компенсация letter-spacing для центровки */
+        }
+
+        .logo-sub-wrapper {
+            display: flex;
+            align-items: center;
+            margin-top: -20px;
+            position: relative;
+            z-index: 2;
         }
 
         .logo-sub {
             font-family: 'Alex Brush', cursive;
-            font-size: 3.5rem;
-            color: var(--wine);
-            margin-top: -20px;
-            display: block;
-            transform: rotate(-5deg); /* Легкий наклон как на референсе */
+            font-size: 4.5rem;
+            color: #5E1B28;
+            transform: rotate(-6deg); /* Наклон как на референсе */
+            line-height: 1;
         }
 
-        /* Декоративная звезда */
         .logo-star {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            margin-left: 10px;
-            fill: var(--wine);
+            width: 35px;
+            height: 35px;
+            fill: #5E1B28;
+            margin-left: 15px;
+            margin-top: 10px;
         }
 
         .tagline {
-            font-size: 0.8rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            letter-spacing: 0.4em;
+            color: #5E1B28;
+            margin-top: 40px;
             text-transform: uppercase;
-            letter-spacing: 0.3em;
+            font-weight: 500;
+        }
+
+        /* Текст-подсказка */
+        .hint {
             margin-top: 30px;
-            font-weight: 500;
-        }
-
-        /* --- СЕКЦИЯ 2: ПАЛИТРА И ТИПОГРАФИКА --- */
-        .style-guide {
-            padding: 60px 20px;
-            text-align: center;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .style-guide h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 30px;
-            font-weight: 400;
-        }
-
-        .colors {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
-        }
-
-        .color-box {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            color: white;
-            font-weight: bold;
-        }
-
-        /* --- СЕКЦИЯ 3: ПРИМЕР КАРТОЧЕК ТОВАРОВ --- */
-        .catalog-preview {
-            padding: 60px 20px;
-            background-color: var(--cream);
-        }
-
-        .catalog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .product-card {
-            background: #fff;
-            border: 1px solid rgba(94, 27, 40, 0.1); /* Тонкая винная рамка */
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease;
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(94, 27, 40, 0.05);
-        }
-
-        /* Имитация картинки товара */
-        .product-image {
-            width: 100%;
-            height: 200px;
-            background-color: var(--bg-pink);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            color: var(--wine);
-        }
-
-        .product-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-
-        .product-desc {
-            font-size: 0.8rem;
-            color: #888;
-            margin-bottom: 15px;
-        }
-
-        .product-price {
-            font-weight: 500;
+            color: #555;
             font-size: 1.1rem;
-            color: var(--wine);
-        }
-
-        /* Стилизация под конверт с референса (для акцентов или футера) */
-        .envelope-section {
-            padding: 80px 20px;
             text-align: center;
-            background-color: var(--bg-pink);
-            position: relative;
-        }
-
-        .envelope-card {
-            background: var(--cream);
-            max-width: 500px;
-            margin: 0 auto;
-            padding: 40px;
-            border-radius: 4px;
-            box-shadow: 0 15px 35px rgba(94, 27, 40, 0.1);
-            border-top: 15px solid var(--bg-pink-dark);
-            position: relative;
-        }
-
-        .envelope-card h3 {
-            font-family: 'Alex Brush', cursive;
-            font-size: 3rem;
-            color: var(--wine);
-            margin-bottom: 15px;
-        }
-
-        .envelope-card p {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            line-height;
-            margin-bottom: 10px;
         }
 
         /* Адаптив для телефонов */
-        @media (max-width: 768px) {
-            .logo-main { font-size: 3rem; }
-            .logo-sub { font-size: 2.5rem; margin-top: -10px; }
-            .hero { padding: 50px 20px; }
+        @media (max-width: 650px) {
+            #logo-to-save {
+                width: 90vw;
+                height: 90vw;
+            }
+            .logo-main { font-size: 4rem; }
+            .logo-sub { font-size: 3rem; }
+            .logo-star { width: 25px; height: 25px; }
+            .tagline { font-size: 0.8rem; margin-top: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Шапка с логотипом (как на референсе GOLDY) -->
-    <header class="hero">
-        <div class="logo-container">
-            <div class="logo-main">SHELA</div>
-            <div class="logo-sub">
-                Cosmetics 
-                <svg class="logo-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-            </div>
+    <!-- Блок, который будет сохраняться -->
+    <div id="logo-to-save" title="Нажмите, чтобы сохранить в галерею">
+        <div class="logo-main">SHELA</div>
+        <div class="logo-sub-wrapper">
+            <div class="logo-sub">Cosmetics</div>
+            <!-- Векторная звезда -->
+            <svg class="logo-star" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
         </div>
-        <p class="tagline">Boutique Beauty & Accessories</p>
-    </header>
+        <div class="tagline">SINCE 2024</div>
+    </div>
 
-    <!-- Палитра и Шрифты (для превью) -->
-    <section class="style-guide">
-        <h2>Визуальная концепция</h2>
-        <div class="colors">
-            <div class="color-box" style="background-color: #F2D4D8; color: #5E1B28;">Pink</div>
-            <div class="color-box" style="background-color: #E5B6BD; color: #5E1B28;">Dust</div>
-            <div class="color-box" style="background-color: #5E1B28;">Wine</div>
-            <div class="color-box" style="background-color: #FDFBF7; color: #5E1B28; border: 1px solid #ddd;">Cream</div>
-            <div class="color-box" style="background-color: #4A2C1D;">Choco</div>
-        </div>
-    </section>
+    <div class="hint">👆 Нажмите на логотип, чтобы скачать его в высоком качестве</div>
 
-    <!-- Пример того, как будут выглядеть товары (Косметика / Аксессуары) -->
-    <section class="catalog-preview">
-        <div class="catalog-grid">
-            <!-- Карточка 1 (Копия люкса) -->
-            <div class="product-card">
-                <div class="product-image">[ Фото: Палетка Hourglass ]</div>
-                <h3 class="product-title">Палетка для лица</h3>
-                <p class="product-desc">Premium Quality 1:1</p>
-                <p class="product-price">4 500 ₽</p>
-            </div>
+    <script>
+        document.getElementById('logo-to-save').addEventListener('click', function() {
+            const logoElement = this;
             
-            <!-- Карточка 2 (Косметичка) -->
-            <div class="product-card">
-                <div class="product-image">[ Фото: Косметичка ]</div>
-                <h3 class="product-title">Косметичка Quilted</h3>
-                <p class="product-desc">Нежный атлас</p>
-                <p class="product-price">2 200 ₽</p>
-            </div>
+            // Меняем курсор, чтобы показать загрузку
+            logoElement.style.cursor = 'wait';
 
-            <!-- Карточка 3 (Чехол) -->
-            <div class="product-card">
-                <div class="product-image">[ Фото: Чехол на телефон ]</div>
-                <h3 class="product-title">Чехол Dior Style</h3>
-                <p class="product-desc">Силикон / Защита камеры</p>
-                <p class="product-price">1 800 ₽</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Секция в стиле конверта (как на 3-м референсе) -->
-    <section class="envelope-section">
-        <div class="envelope-card">
-            <h3>The Shela Atelier</h3>
-            <p>Sweet like strawberries, Rich like cocoa</p>
-            <p style="font-size: 0.9rem; color: #888; margin-top: 15px;">Добро пожаловать в наш бутик. Только отборные бренды, идеальные копии и эстетичные аксессуары для вашей красоты.</p>
-        </div>
-    </section>
-
+            // Делаем скриншот блока с увеличением в 4 раза (для очень высокого качества)
+            html2canvas(logoElement, {
+                scale: 4, 
+                backgroundColor: null, // Сохраняем фон
+                useCORS: true 
+            }).then(canvas => {
+                // Конвертируем в картинку
+                const image = canvas.toDataURL("image/png", 1.0);
+                
+                // Создаем невидимую ссылку для скачивания
+                const link = document.createElement('a');
+                link.download = 'shela-cosmetics-logo.png';
+                link.href = image;
+                link.click();
+                
+                // Возвращаем курсор
+                logoElement.style.cursor = 'pointer';
+            }).catch(err => {
+                console.error("Ошибка при сохранении:", err);
+                alert("Не удалось сохранить. Попробуйте сделать скриншот экрана.");
+                logoElement.style.cursor = 'pointer';
+            });
+        });
+    </script>
 </body>
 </html>
