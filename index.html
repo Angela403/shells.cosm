@@ -3,154 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мини-превью логотипов SHELA</title>
+    <title>Финальный логотип SHELA</title>
     
-    <!-- Твои шрифты (веб-аналоги) -->
+    <!-- Шрифты из Варианта 1 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Great+Vibes&family=Montserrat:wght@300;500&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
     
+    <!-- Библиотека для скачивания -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <style>
         body {
-            background-color: #eaeaea;
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 40px 20px;
+            background-color: #e5e5e5;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
         }
 
-        h2 { text-align: center; color: #333; font-weight: 400; margin-bottom: 5px; }
-        p.sub { text-align: center; color: #666; margin-bottom: 40px; font-size: 0.9rem; }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            max-width: 900px;
-            width: 100%;
-        }
-
-        /* Базовый стиль квадрата */
-        .logo-box {
-            width: 100%;
-            aspect-ratio: 1 / 1;
+        /* Квадрат логотипа (Гамма из Варианта 3) */
+        #logo-to-save {
+            width: 600px;
+            height: 600px;
+            /* Цвета из Варианта 3 */
+            background-color: #F0EBD5; /* Vanilla Cream */
+            color: #A0817E; /* Dusty */
+            
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
             position: relative;
-            overflow: hidden;
-            border-radius: 4px;
         }
 
-        .logo-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+        #logo-to-save:hover {
+            transform: scale(1.02);
         }
 
-        .logo-box:hover::after {
-            content: "Сохранить";
-            position: absolute;
-            bottom: 15px;
-            background: rgba(0,0,0,0.6);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            letter-spacing: 0.1em;
+        /* Шрифты из Варианта 1 */
+        .logo-main {
+            font-family: 'Playfair Display', serif; /* Аналог Grosia */
+            font-size: 4rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            line-height: 1;
+            margin-left: 0.05em;
         }
 
-        /* ================= ВАРИАНТ 1 ================= */
-        /* Фон: Dusty (#A0817E), Текст: Vanilla Cream (#F0EBD5) */
-        .v1 { background-color: #A0817E; color: #F0EBD5; }
-        .v1 .main { font-family: 'Playfair Display', serif; font-size: 3.5rem; letter-spacing: 0.05em; }
-        .v1 .sub { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; letter-spacing: 0.5em; margin-top: 10px; text-transform: uppercase; font-weight: 300;}
-
-        /* ================= ВАРИАНТ 2 ================= */
-        /* Фон: Rose Milk (#FFCAD4), Текст: Wine (#5E1B28) */
-        .v2 { background-color: #FFCAD4; color: #5E1B28; }
-        .v2 .main { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; font-weight: 500; letter-spacing: 0.1em; line-height: 0.8; }
-        .v2 .sub { font-family: 'Great Vibes', cursive; font-size: 3rem; margin-top: -10px; transform: rotate(-3deg); }
-
-        /* ================= ВАРИАНТ 3 ================= */
-        /* Фон: Vanilla Cream (#F0EBD5), Текст: Dusty (#A0817E) */
-        .v3 { background-color: #F0EBD5; color: #A0817E; }
-        .v3 .main { font-family: 'Cinzel', serif; font-size: 3.2rem; letter-spacing: 0.1em; font-weight: 500; }
-        .v3 .sub { font-family: 'Great Vibes', cursive; font-size: 2.8rem; margin-top: 5px; }
-
-        /* ================= ВАРИАНТ 4 ================= */
-        /* Фон: Soft Pink (#F8C8D1), Текст: Wine (#5E1B28) */
-        .v4 { background-color: #F8C8D1; color: #5E1B28; }
-        .v4 .main { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; letter-spacing: 0.3em; font-weight: 300; margin-left: 0.3em; }
-        .v4 .sub { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2.2rem; margin-top: 5px; }
-
-        .label {
-            text-align: center;
-            margin-top: 15px;
-            color: #444;
+        .logo-sub {
+            font-family: 'Montserrat', sans-serif; /* Аналог Gilroy */
             font-size: 0.85rem;
-            line-height: 1.4;
+            font-weight: 300;
+            letter-spacing: 0.6em;
+            margin-top: 15px;
+            text-transform: uppercase;
+            margin-left: 0.6em; /* Выравнивание для разряда */
         }
-        .label span { font-size: 0.75rem; color: #777; }
+
+        /* Подсказка */
+        .hint {
+            margin-top: 30px;
+            color: #555;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        /* Адаптив для телефонов */
+        @media (max-width: 650px) {
+            #logo-to-save {
+                width: 90vw;
+                height: 90vw;
+            }
+            .logo-main { font-size: 3rem; }
+            .logo-sub { font-size: 0.7rem; }
+        }
     </style>
 </head>
 <body>
 
-    <h2>Концепты SHELA COSMETICS</h2>
-    <p class="sub">Нажми на квадрат, чтобы сохранить в PNG (высокое качество)</p>
-
-    <div class="grid">
-
-        <!-- ВАРИАНТ 1: Dusty + Playfair/Montserrat -->
-        <div>
-            <div class="logo-box v1" id="box1">
-                <div class="main">SHELA</div>
-                <div class="sub">COSMETICS</div>
-            </div>
-            <div class="label">Вариант 1<br><span>Dusty + Vanilla Cream<br>Grosia + Gilroy</span></div>
-        </div>
-
-        <!-- ВАРИАНТ 2: Rose Milk + Montserrat/Great Vibes -->
-        <div>
-            <div class="logo-box v2" id="box2">
-                <div class="main">SHELA</div>
-                <div class="sub">Cosmetics</div>
-            </div>
-            <div class="label">Вариант 2<br><span>Rose Milk + Wine<br>Gilroy + Snell Roundhand</span></div>
-        </div>
-
-        <!-- ВАРИАНТ 3: Vanilla Cream + Cinzel/Great Vibes -->
-        <div>
-            <div class="logo-box v3" id="box3">
-                <div class="main">SHELA</div>
-                <div class="sub">Cosmetics</div>
-            </div>
-            <div class="label">Вариант 3<br><span>Vanilla Cream + Dusty<br>Mirra Auriolic + Snell Roundhand</span></div>
-        </div>
-
-        <!-- ВАРИАНТ 4: Soft Pink + Montserrat/Playfair -->
-        <div>
-            <div class="logo-box v4" id="box4">
-                <div class="main">SHELA</div>
-                <div class="sub">Cosmetics</div>
-            </div>
-            <div class="label">Вариант 4<br><span>Soft Pink + Wine<br>Gilroy + Grosia</span></div>
-        </div>
-
+    <!-- Блок логотипа -->
+    <div id="logo-to-save" title="Нажмите, чтобы сохранить">
+        <div class="logo-main">SHELA</div>
+        <div class="logo-sub">Cosmetics</div>
     </div>
 
+    <div class="hint">👆 Нажмите на логотип, чтобы скачать его в хорошем качестве</div>
+
     <script>
-        function downloadLogo(elementId, fileName) {
-            const logoElement = document.getElementById(elementId);
-            logoElement.style.transform = "scale(1)"; // Сброс эффекта наведения для ровного скрина
-            
+        document.getElementById('logo-to-save').addEventListener('click', function() {
+            const logoElement = this;
+            logoElement.style.cursor = 'wait';
+
             html2canvas(logoElement, {
                 scale: 4, // Высокое разрешение (2400x2400)
                 backgroundColor: null,
@@ -158,19 +108,16 @@
             }).then(canvas => {
                 const image = canvas.toDataURL("image/png", 1.0);
                 const link = document.createElement('a');
-                link.download = fileName;
+                link.download = 'shela-logo-final.png';
                 link.href = image;
                 link.click();
+                logoElement.style.cursor = 'pointer';
             }).catch(err => {
                 console.error("Ошибка:", err);
                 alert("Не удалось сохранить автоматически. Сделайте скриншот.");
+                logoElement.style.cursor = 'pointer';
             });
-        }
-
-        document.getElementById('box1').addEventListener('click', () => downloadLogo('box1', 'shela-v1-dusty.png'));
-        document.getElementById('box2').addEventListener('click', () => downloadLogo('box2', 'shela-v2-rosemilk.png'));
-        document.getElementById('box3').addEventListener('click', () => downloadLogo('box3', 'shela-v3-vanilla.png'));
-        document.getElementById('box4').addEventListener('click', () => downloadLogo('box4', 'shela-v4-softpink.png'));
+        });
     </script>
 </body>
 </html>
