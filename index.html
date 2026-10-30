@@ -3,121 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Финальный логотип SHELA</title>
+    <title>Превью SHELLA COSMETICS</title>
     
-    <!-- Шрифты из Варианта 1 -->
+    <!-- Шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <!-- Great Vibes (перьевой курсив) + Montserrat (аналог Gilroy) -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
     
-    <!-- Библиотека для скачивания -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <style>
         body {
             background-color: #e5e5e5;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            font-family: sans-serif;
         }
 
-        /* Квадрат логотипа (Гамма из Варианта 3) */
-        #logo-to-save {
-            width: 600px;
-            height: 600px;
-            /* Цвета из Варианта 3 */
-            background-color: #F0EBD5; /* Vanilla Cream */
-            color: #A0817E; /* Dusty */
-            
+        h2 { text-align: center; color: #333; font-weight: 500; margin-bottom: 5px; }
+        p.sub { text-align: center; color: #666; margin-bottom: 40px; font-size: 0.9rem; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 950px;
+            width: 100%;
+        }
+
+        /* Базовый стиль квадрата */
+        .logo-box {
+            width: 100%;
+            aspect-ratio: 1 / 1;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
             position: relative;
+            overflow: hidden;
+            border-radius: 6px;
         }
 
-        #logo-to-save:hover {
-            transform: scale(1.02);
+        .logo-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
 
-        /* Шрифты из Варианта 1 */
-        .logo-main {
-            font-family: 'Playfair Display', serif; /* Аналог Grosia */
-            font-size: 4rem;
-            font-weight: 500;
-            letter-spacing: 0.05em;
-            line-height: 1;
-            margin-left: 0.05em;
+        .logo-box:hover::after {
+            content: "Скачать";
+            position: absolute;
+            bottom: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
         }
 
-        .logo-sub {
+        /* Общая типографика */
+        .shella {
+            font-family: 'Great Vibes', cursive;
+            font-size: 6.5rem; /* Крупный перьевой шрифт */
+            line-height: 0.8;
+            margin-bottom: 15px;
+        }
+
+        .cosmetics {
             font-family: 'Montserrat', sans-serif; /* Аналог Gilroy */
             font-size: 0.85rem;
-            font-weight: 300;
-            letter-spacing: 0.6em;
-            margin-top: 15px;
-            text-transform: uppercase;
-            margin-left: 0.6em; /* Выравнивание для разряда */
+            font-weight: 500;
+            letter-spacing: 0.5em; /* Широкий разряд для стиля */
+            text-transform: lowercase; /* Как ты просила строчными */
+            margin-left: 0.5em; /* Центровка */
         }
 
-        /* Подсказка */
-        .hint {
-            margin-top: 30px;
-            color: #555;
-            font-size: 1rem;
+        /* ================= ЦВЕТОВЫЕ КОМБИНАЦИИ ================= */
+
+        /* Вариант 1: Яркий контраст (Розовый фон, Винный текст) */
+        .v1 { background-color: #FFCAD4; color: #5E1B28; }
+
+        /* Вариант 2: Глубокий и дорогой (Винный фон, Нежно-розовый текст) */
+        .v2 { background-color: #5E1B28; color: #FFCAD4; }
+
+        /* Вариант 3: Сливочный и выразительный (Кремовый фон, Насыщенный пыльно-розовый текст) */
+        .v3 { background-color: #FDFBF7; color: #C26A77; }
+
+        /* Вариант 4: Пудровый с ярким акцентом (Пыльно-розовый фон, Глубокий бордо) */
+        .v4 { background-color: #E6B9C0; color: #4A1520; }
+
+        .label {
             text-align: center;
+            margin-top: 15px;
+            color: #444;
+            font-size: 0.85rem;
+            line-height: 1.4;
         }
-
-        /* Адаптив для телефонов */
-        @media (max-width: 650px) {
-            #logo-to-save {
-                width: 90vw;
-                height: 90vw;
-            }
-            .logo-main { font-size: 3rem; }
-            .logo-sub { font-size: 0.7rem; }
-        }
+        .label span { font-size: 0.75rem; color: #777; }
     </style>
 </head>
 <body>
 
-    <!-- Блок логотипа -->
-    <div id="logo-to-save" title="Нажмите, чтобы сохранить">
-        <div class="logo-main">SHELA</div>
-        <div class="logo-sub">Cosmetics</div>
+    <h2>Выразительная гамма & Shella + Gilroy</h2>
+    <p class="sub">Нажми на квадрат, чтобы сохранить в PNG</p>
+
+    <div class="grid">
+
+        <!-- Вариант 1 -->
+        <div>
+            <div class="logo-box v1" id="box1">
+                <div class="shella">Shella</div>
+                <div class="cosmetics">cosmetics</div>
+            </div>
+            <div class="label">Вариант 1<br><span>Soft Pink + Wine</span></div>
+        </div>
+
+        <!-- Вариант 2 -->
+        <div>
+            <div class="logo-box v2" id="box2">
+                <div class="shella">Shella</div>
+                <div class="cosmetics">cosmetics</div>
+            </div>
+            <div class="label">Вариант 2<br><span>Wine + Soft Pink</span></div>
+        </div>
+
+        <!-- Вариант 3 -->
+        <div>
+            <div class="logo-box v3" id="box3">
+                <div class="shella">Shella</div>
+                <div class="cosmetics">cosmetics</div>
+            </div>
+            <div class="label">Вариант 3<br><span>Vanilla + Dusty Rose</span></div>
+        </div>
+
+        <!-- Вариант 4 -->
+        <div>
+            <div class="logo-box v4" id="box4">
+                <div class="shella">Shella</div>
+                <div class="cosmetics">cosmetics</div>
+            </div>
+            <div class="label">Вариант 4<br><span>Dusty Pink + Deep Burgundy</span></div>
+        </div>
+
     </div>
 
-    <div class="hint">👆 Нажмите на логотип, чтобы скачать его в хорошем качестве</div>
-
     <script>
-        document.getElementById('logo-to-save').addEventListener('click', function() {
-            const logoElement = this;
-            logoElement.style.cursor = 'wait';
-
+        function downloadLogo(elementId, fileName) {
+            const logoElement = document.getElementById(elementId);
+            
             html2canvas(logoElement, {
-                scale: 4, // Высокое разрешение (2400x2400)
+                scale: 4, // Высокое качество
                 backgroundColor: null,
                 useCORS: true 
             }).then(canvas => {
                 const image = canvas.toDataURL("image/png", 1.0);
                 const link = document.createElement('a');
-                link.download = 'shela-logo-final.png';
+                link.download = fileName;
                 link.href = image;
                 link.click();
-                logoElement.style.cursor = 'pointer';
             }).catch(err => {
                 console.error("Ошибка:", err);
-                alert("Не удалось сохранить автоматически. Сделайте скриншот.");
-                logoElement.style.cursor = 'pointer';
+                alert("Не удалось сохранить. Сделайте скриншот.");
             });
-        });
+        }
+
+        document.getElementById('box1').addEventListener('click', () => downloadLogo('box1', 'shela-v1.png'));
+        document.getElementById('box2').addEventListener('click', () => downloadLogo('box2', 'shela-v2.png'));
+        document.getElementById('box3').addEventListener('click', () => downloadLogo('box3', 'shela-v3.png'));
+        document.getElementById('box4').addEventListener('click', () => downloadLogo('box4', 'shela-v4.png'));
     </script>
 </body>
 </html>
