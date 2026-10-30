@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Превью SHELLA COSMETICS</title>
+    <title>Превью шрифта Lira для SHELLA</title>
     
-    <!-- Шрифты -->
+    <!-- Подключаем Gilroy (Montserrat) и курсивные шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Great Vibes (перьевой курсив) + Montserrat (аналог Gilroy) -->
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <!-- Montserrat (Gilroy) + Great Vibes (перьевой) + Italiana (контрастный курсив) -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Italiana&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
@@ -35,7 +35,6 @@
             width: 100%;
         }
 
-        /* Базовый стиль квадрата */
         .logo-box {
             width: 100%;
             aspect-ratio: 1 / 1;
@@ -49,6 +48,8 @@
             position: relative;
             overflow: hidden;
             border-radius: 6px;
+            background-color: #FFCAD4; /* Яркий розовый фон */
+            color: #5E1B28; /* Глубокий винный текст */
         }
 
         .logo-box:hover {
@@ -68,37 +69,46 @@
             letter-spacing: 0.1em;
         }
 
-        /* Общая типографика */
+        /* Общая база для Shella (курсив) */
         .shella {
-            font-family: 'Great Vibes', cursive;
-            font-size: 6.5rem; /* Крупный перьевой шрифт */
+            font-size: 6.5rem;
             line-height: 0.8;
             margin-bottom: 15px;
         }
 
+        /* Общая база для cosmetics (Gilroy) */
         .cosmetics {
-            font-family: 'Montserrat', sans-serif; /* Аналог Gilroy */
+            font-family: 'Montserrat', sans-serif;
             font-size: 0.85rem;
             font-weight: 500;
-            letter-spacing: 0.5em; /* Широкий разряд для стиля */
-            text-transform: lowercase; /* Как ты просила строчными */
-            margin-left: 0.5em; /* Центровка */
+            letter-spacing: 0.5em;
+            text-transform: lowercase;
+            margin-left: 0.5em;
         }
 
-        /* ================= ЦВЕТОВЫЕ КОМБИНАЦИИ ================= */
+        /* --- ВАРИАНТ 1: Каллиграфический (перьевой) --- */
+        .v1 .shella {
+            font-family: 'Great Vibes', cursive;
+        }
 
-        /* Вариант 1: Яркий контраст (Розовый фон, Винный текст) */
-        .v1 { background-color: #FFCAD4; color: #5E1B28; }
+        /* --- ВАРИАНТ 2: Контрастный курсив (ближе к капче) --- */
+        /* Используем Italiana как элегантную альтернативу Cursive Lirav 11 */
+        .v2 .shella {
+            font-family: 'Italiana', serif;
+            font-style: italic; /* Добавляем наклон для сходства с капчей */
+            font-weight: 400;
+            letter-spacing: 0.05em;
+        }
 
-        /* Вариант 2: Глубокий и дорогой (Винный фон, Нежно-розовый текст) */
-        .v2 { background-color: #5E1B28; color: #FFCAD4; }
-
-        /* Вариант 3: Сливочный и выразительный (Кремовый фон, Насыщенный пыльно-розовый текст) */
-        .v3 { background-color: #FDFBF7; color: #C26A77; }
-
-        /* Вариант 4: Пудровый с ярким акцентом (Пыльно-розовый фон, Глубокий бордо) */
-        .v4 { background-color: #E6B9C0; color: #4A1520; }
-
+        /* --- ВАРИАНТ 3: Лёгкий рукописный (Cursive Lirav Style) --- */
+        /* Используем курсивный Gilroy (Montserrat Italic) для чистоты, если перьевой не подходит */
+        .v3 .shella {
+            font-family: 'Montserrat', sans-serif;
+            font-style: italic;
+            font-weight: 300;
+            letter-spacing: 0.02em;
+        }
+        
         .label {
             text-align: center;
             margin-top: 15px;
@@ -111,45 +121,36 @@
 </head>
 <body>
 
-    <h2>Выразительная гамма & Shella + Gilroy</h2>
+    <h2>Варианты шрифта для слова Shella</h2>
     <p class="sub">Нажми на квадрат, чтобы сохранить в PNG</p>
 
     <div class="grid">
 
-        <!-- Вариант 1 -->
+        <!-- Вариант 1: Перьевой курсив (Great Vibes) -->
         <div>
             <div class="logo-box v1" id="box1">
                 <div class="shella">Shella</div>
                 <div class="cosmetics">cosmetics</div>
             </div>
-            <div class="label">Вариант 1<br><span>Soft Pink + Wine</span></div>
+            <div class="label">Вариант 1<br><span>Перьевой курсив (Great Vibes)</span></div>
         </div>
 
-        <!-- Вариант 2 -->
+        <!-- Вариант 2: Контрастный курсив (Italiana) -->
         <div>
             <div class="logo-box v2" id="box2">
                 <div class="shella">Shella</div>
                 <div class="cosmetics">cosmetics</div>
             </div>
-            <div class="label">Вариант 2<br><span>Wine + Soft Pink</span></div>
+            <div class="label">Вариант 2<br><span>Контрастный курсив (похож на Cursive Lirav)</span></div>
         </div>
 
-        <!-- Вариант 3 -->
+        <!-- Вариант 3: Лёгкий рукописный (Montserrat Italic) -->
         <div>
             <div class="logo-box v3" id="box3">
                 <div class="shella">Shella</div>
                 <div class="cosmetics">cosmetics</div>
             </div>
-            <div class="label">Вариант 3<br><span>Vanilla + Dusty Rose</span></div>
-        </div>
-
-        <!-- Вариант 4 -->
-        <div>
-            <div class="logo-box v4" id="box4">
-                <div class="shella">Shella</div>
-                <div class="cosmetics">cosmetics</div>
-            </div>
-            <div class="label">Вариант 4<br><span>Dusty Pink + Deep Burgundy</span></div>
+            <div class="label">Вариант 3<br><span>Лёгкий рукописный (чистый курсив)</span></div>
         </div>
 
     </div>
@@ -159,7 +160,7 @@
             const logoElement = document.getElementById(elementId);
             
             html2canvas(logoElement, {
-                scale: 4, // Высокое качество
+                scale: 4,
                 backgroundColor: null,
                 useCORS: true 
             }).then(canvas => {
@@ -174,10 +175,9 @@
             });
         }
 
-        document.getElementById('box1').addEventListener('click', () => downloadLogo('box1', 'shela-v1.png'));
-        document.getElementById('box2').addEventListener('click', () => downloadLogo('box2', 'shela-v2.png'));
-        document.getElementById('box3').addEventListener('click', () => downloadLogo('box3', 'shela-v3.png'));
-        document.getElementById('box4').addEventListener('click', () => downloadLogo('box4', 'shela-v4.png'));
+        document.getElementById('box1').addEventListener('click', () => downloadLogo('box1', 'shella-v1.png'));
+        document.getElementById('box2').addEventListener('click', () => downloadLogo('box2', 'shella-v2.png'));
+        document.getElementById('box3').addEventListener('click', () => downloadLogo('box3', 'shella-v3.png'));
     </script>
 </body>
 </html>
